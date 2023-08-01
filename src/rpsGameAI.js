@@ -1,11 +1,17 @@
 const Player = require('./Player');
+const AIPlayer = require('./AIPlayer');
 
 class rpsGameAI {
-    // setUp(names, gameType, player)
+
+
     setUp(names, game, winType) {
-        this.players = names.map(name => new Player(name));
+        this.players = [new Player(names), new AIPlayer];
         this.gameType = game;
         this.winType = winType;
+    }
+
+    currentPlayer() {
+        return this.players[0]
     }
 
     testPrint() {
