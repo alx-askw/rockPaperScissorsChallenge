@@ -5,7 +5,7 @@ router.post('/', (req, res) => {
     const game = req.app.locals.gameObj
     game.currentPlayer().currentMove = req.body.attackChoice;
     game.switchPlayers();
-    res.redirect('/player2')
+    game.gameType === 'vsAI' ? (game.aiPlay(), res.redirect('/scoreScreen'), console.log(game.players[0])) : res.redirect('/player2');
 })
 
 router.get('/', (req, res) => {
@@ -13,4 +13,4 @@ router.get('/', (req, res) => {
 })
 
 
-module.exports = router;    
+module.exports = router;        

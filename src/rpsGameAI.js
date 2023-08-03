@@ -3,6 +3,7 @@ const AIPlayer = require('./AIPlayer');
 
 class rpsGameAI {
 
+    gameType = 'vsAI';
 
     setUp(names, game, winType) {
         this.players = [new Player(names), new AIPlayer];
@@ -11,10 +12,18 @@ class rpsGameAI {
     }
 
     // pretty proud this was my first solution - can expand this to as many rules as I want since each attack style beats one other thing = key : value
+    // winningCondition = {
+    //     "rock": "scissors",
+    //     "scissors": "paper",
+    //     "paper": "rock"
+    // }
+
     winningCondition = {
-        "rock": "scissors",
-        "scissors": "paper",
-        "paper": "rock"
+        "rock": ["scissors", "lizard"],
+        "scissors": ["paper", "lizard"],
+        "paper": ["rock", "spock"],
+        "lizard": ["paper", "spock"],
+        "spock": ["scissors", "rock"]
     }
 
     currentPlayer() {
@@ -25,9 +34,16 @@ class rpsGameAI {
         this.players.reverse();
     }
 
+    aiPlay() {
+        const moves = ["rock", "paper", "scissors", "lizard", "spock"]
+        this.players[0].currentMove = moves[Math.floor(Math.random() * (moves.length))]
+        console.log(2222, moves[Math.floor(Math.random() * (moves.length))])
+    }
+
     score() {
+        console.log("here", this.players[0].currentMove, " | ", this.players[1].currentMove, " | ", this.players[1].name)
         if (this.players[0].currentMove === this.players[1].currentMove) { return "Tie!" };
-        if (this.winningCondition[this.players[0].currentMove] === this.players[1].currentMove) { this.players[0].score += 1; return "player 1 wins" };
+        if (this.winningCondition[this.players[0].currentMove].includes(this.players[1].currentMove)) { this.players[0].score += 1; return "player 1 wins" };
         this.players[1].score += 1;
         return "player 2 wins";
     }

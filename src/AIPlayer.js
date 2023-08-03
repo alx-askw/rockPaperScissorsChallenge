@@ -2,6 +2,7 @@ class AIPlayer {
     constructor() {
         this.name = 'AI Player';
         this.score = 0;
+        this.currentMove = undefined;
     }
 
     roundWin() {
