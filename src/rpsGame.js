@@ -1,8 +1,9 @@
 const Player = require('./Player');
 class rpsGame {
 
+
     setUp(names, game, winType) {
-        this.players = [new Player(names[0]), new Player(names[1])];
+        this.players = [new Player(names[0]), new Player(names[1].length > 0 ? names[1] : "Default Boring Name")];
         this.gameType = game;
         this.winType = winType;
         this.gameType = game;
@@ -38,7 +39,7 @@ class rpsGame {
         this.players[0].currentMove = moves[Math.floor(Math.random() * (moves.length))]
         console.log(2222, moves[Math.floor(Math.random() * (moves.length))])
     }
-
+    // TODO: Make it to where instead of scorepage saying last move vs lastmove it says something like "paper disproves spock" as per the RPSLS rules https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock
     setPlayersLastMove() { // really basic but just some QoL functionality
         this.players[0].lastMove = this.players[0].currentMove;
         this.players[1].lastMove = this.players[1].currentMove;

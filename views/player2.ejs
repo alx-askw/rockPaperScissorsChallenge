@@ -13,17 +13,18 @@
     <h2>Your Have a score of <%= score %>
     </h2>
     <form action="/scoreScreen" method="post">
-        <input type="radio" name="attackChoice" value="rock">
+        <input type="radio" name="attackChoice" value="rock" required>
         <label>Rock &#x1F9F1;</label>
-        <input type="radio" name="attackChoice" value="paper">
+        <input type="radio" name="attackChoice" value="paper" required>
         <label>Paper &#x1F4DD;</label>
-        <input type="radio" name="attackChoice" value="scissors">
+        <input type="radio" name="attackChoice" value="scissors" required>
         <label>Scissors &#x2702;</label>
 
-        <input type="radio" name="attackChoice" value="lizard">
+        <input type="radio" name="attackChoice" value="lizard" required>
         <label>Lizard &#x1F98E;</label>
-        <input type="radio" name="attackChoice" value="spock">
+        <input type="radio" name="attackChoice" value="spock" required>
         <label>Spock &#x1F596;</label>
+
 
         <input id="names-submit" type="submit" value="Submit!">
     </form>
