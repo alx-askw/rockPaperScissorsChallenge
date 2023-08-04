@@ -3,6 +3,7 @@ class Player {
         this.name = name;
         this.score = 0;
         this.currentMove = undefined;
+        this.lastMove = undefined; // just here so score screen can show what each player chose
     }
 
     roundWin() {

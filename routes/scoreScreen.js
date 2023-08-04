@@ -5,8 +5,10 @@ const router = express.Router();
 router.post('/', (req, res) => {
     const game = req.app.locals.gameObj;
     game.currentPlayer().currentMove = req.body.attackChoice;
+    console.log("||| ", game.players[0], " ||||")
     game.switchPlayers();
     game.score()
+    game.setPlayersLastMove()
     game.clear()
     res.render('scoreScreen', {
         name: game.players,
@@ -21,6 +23,7 @@ router.get('/', (req, res) => {
     game.currentPlayer();
     game.switchPlayers();
     game.score()
+    game.setPlayersLastMove()
     game.clear()
     res.render('scoreScreen', {
         name: game.players,

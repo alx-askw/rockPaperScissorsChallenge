@@ -1,14 +1,11 @@
 const Player = require('./Player');
-const AIPlayer = require('./AIPlayer');
-
-class rpsGameTwoPlayer {
-
-    gameType = 'localTwoPlayer';
+class rpsGame {
 
     setUp(names, game, winType) {
-        this.players = [new Player(names), new Player(names)];
+        this.players = [new Player(names[0]), new Player(names[1])];
         this.gameType = game;
         this.winType = winType;
+        this.gameType = game;
     }
 
     // pretty proud this was my first solution - can expand this to as many rules as I want since each attack style beats one other thing = key : value
@@ -18,6 +15,7 @@ class rpsGameTwoPlayer {
     //     "paper": "rock"
     // }
 
+    //this has been changed for lizard spock and now uses include.
     winningCondition = {
         "rock": ["scissors", "lizard"],
         "scissors": ["paper", "lizard"],
@@ -34,7 +32,20 @@ class rpsGameTwoPlayer {
         this.players.reverse();
     }
 
+    aiPlay() {
+        this.players[0].name = "CPU Player";
+        const moves = ["rock", "paper", "scissors", "lizard", "spock"]
+        this.players[0].currentMove = moves[Math.floor(Math.random() * (moves.length))]
+        console.log(2222, moves[Math.floor(Math.random() * (moves.length))])
+    }
+
+    setPlayersLastMove() { // really basic but just some QoL functionality
+        this.players[0].lastMove = this.players[0].currentMove;
+        this.players[1].lastMove = this.players[1].currentMove;
+    }
+
     score() {
+        console.log("here", this.players[0].currentMove, " | ", this.players[1].currentMove, " | ", this.players[1].name)
         if (this.players[0].currentMove === this.players[1].currentMove) { return "Tie!" };
         if (this.winningCondition[this.players[0].currentMove].includes(this.players[1].currentMove)) { this.players[0].score += 1; return "player 1 wins" };
         this.players[1].score += 1;
@@ -56,5 +67,4 @@ class rpsGameTwoPlayer {
     }
 }
 
-
-module.exports = rpsGameTwoPlayer;   
+module.exports = rpsGame;   

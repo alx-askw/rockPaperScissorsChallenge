@@ -10,11 +10,16 @@
 <body>
     <h1>Scores are</h1>
     <h2>
+
         <%= name[0].name %>: <%= name[0].score %> vs <%= name[1].name %>: <%= name[1].score %>
 
+
     </h2>
-    <form action="/index">
-        <input id="names-submit" type="submit" value="Submit!">
+    <h3>
+        <%= name[0].lastMove %> VS <%= name[1].lastMove %>
+    </h3>
+    <form action="/">
+        <input id="names-submit" type="submit" value="Play Again?">
     </form>
 </body>
 
