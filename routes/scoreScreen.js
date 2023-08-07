@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
 })
 
 
-// this is for ai
+// this is for ai game
 router.get('/', (req, res) => {
     const game = req.app.locals.gameObj;
 

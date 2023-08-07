@@ -24,6 +24,9 @@ app.use('/player2', player2Router);
 app.use('/scoreScreen', scoreScreenRouter);
 
 
-app.listen(PORT, () => {
-    console.log(`server online: local`)
+const APP = app.listen(PORT, () => {
+    console.log(`server online: localhost:${PORT}`)
 })
+
+
+module.exports = APP;
