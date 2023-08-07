@@ -1,5 +1,18 @@
 # RPS Challenge
 
+
+Submission Notes:
+------------------
+* npm i should install dependencies
+* npm run start should start server on port 3000
+* npm run test will run mocha and tests
+* there are 10 tests, I would have like to done more but there are time constraints but I tested both the code functionality as well as the routes using both Chai-http and Postman.
+* Both extended criteria are done.
+* I was originally going to add the option to either player RPS or RPS + Lizard/Spock but it seemed like a time sink, so every game is RPS + Lizard/Spock
+* I also was originally going to add the option to be able to choose a number of rounds that had to be won to reach a win condition but I never got round to it, though there are still traces of it in the source code.
+* I didn't do any styling as that wasn't within in the requirements (and the chitter challenge is too big to keep waiting) but there are some emojis.
+* there is a mark down file for references.
+
 Instructions
 -------
 
